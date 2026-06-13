@@ -1,0 +1,35 @@
+# ── Python (pc/) ───────────────────────────────
+__pycache__/
+*.py[cod]
+*.spec
+pc/build/
+pc/dist/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+
+# ── Android ────────────────────────────────────
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+android/.idea/
+*.iml
+.kotlin/
+
+# ── Logs / temp ────────────────────────────────
+*.log
+_*.py
+_*.png
+*.tmp
+
+# ── Release-Binärdateien (nur als GitHub-Release-Assets) ─
+releases/*.apk
+releases/*.zip
+
+# ── OS ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
