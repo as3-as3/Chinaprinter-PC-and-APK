@@ -1,0 +1,58 @@
+============================================================
+  MXW01 Mini-Label-Drucker  —  Portable für Windows
+============================================================
+
+So einfach geht's:
+
+  1. "MXW01 Drucker.exe" per Doppelklick starten.
+     (Keine Installation nötig — läuft direkt vom USB-Stick.)
+
+  2. Drucker einschalten (grünes Licht).
+     Falls die Hersteller-App (FunPrint) am Handy läuft:
+     dort den Drucker TRENNEN — sonst blockiert sie die Verbindung.
+
+  3. Im Programm auf "Verbinden" klicken.
+     Der Drucker wird automatisch gefunden.
+
+  4. Inhalt wählen (Tab) und auf "DRUCKEN" klicken.
+
+
+WAS KANN DAS PROGRAMM?
+------------------------------------------------------------
+  • Text        — mehrzeilig, Schriftgröße einstellbar
+  • QR-Code     — z.B. URLs, mit optionalem Text darunter
+  • Etikett     — Titel + Untertitel + optionaler QR-Code
+  • Barcode     — EAN13, Code128, Code39, EAN8, UPC-A, u.a.
+  • Bild        — Fotos/Farbbilder (mit Dithering für gute S/W-Qualität)
+
+  Zusätzlich:
+  • Dichte-Regler  — heller/dunkler drucken
+  • Kopien         — mehrere Ausdrucke am Stück
+
+
+VORAUSSETZUNGEN
+------------------------------------------------------------
+  • Windows 10 oder 11
+  • Bluetooth (BLE) am PC aktiviert
+  • Drucker: MXW01 (BLE)
+
+
+HINWEISE
+------------------------------------------------------------
+  • Erster Start dauert ein paar Sekunden (EXE entpackt sich
+    intern). Danach startet sie schnell.
+
+  • Windows SmartScreen warnt evtl. beim ersten Start
+    ("Unbekannter Herausgeber"), weil das Programm nicht
+    signiert ist. Einfach:
+       "Weitere Informationen"  ->  "Trotzdem ausführen"
+    Das ist bei selbst erstellten Programmen normal und
+    völlig unbedenklich.
+
+  • Der Drucker schaltet sich nach einiger Zeit Inaktivität
+    automatisch ab. Vor dem Drucken kurz einschalten.
+
+  • Druckbreite: 384 Punkte. Bilder werden automatisch
+    passend skaliert.
+
+============================================================

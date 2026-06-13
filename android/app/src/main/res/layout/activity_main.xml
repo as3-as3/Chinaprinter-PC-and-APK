@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Verbindung -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <Button
+                android:id="@+id/btnConnect"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verbinden" />
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="getrennt"
+                android:textColor="@color/err" />
+        </LinearLayout>
+
+        <!-- Modus -->
+        <TextView style="@style/Lbl" android:text="Modus:" />
+        <Spinner
+            android:id="@+id/spMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/accent" />
+
+        <!-- TEXT -->
+        <LinearLayout android:id="@+id/grpText" style="@style/Grp">
+            <TextView style="@style/Lbl" android:text="Text (mehrzeilig):" />
+            <EditText
+                android:id="@+id/etText"
+                style="@style/Inp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:text="MXW01\nHallo Welt!\n2026" />
+            <TextView style="@style/Lbl" android:text="Schriftgröße:" />
+            <SeekBar android:id="@+id/sbFont" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:max="64" android:progress="32" />
+        </LinearLayout>
+
+        <!-- QR -->
+        <LinearLayout android:id="@+id/grpQr" style="@style/Grp">
+            <TextView style="@style/Lbl" android:text="QR-Inhalt (URL/Text):" />
+            <EditText android:id="@+id/etQrData" style="@style/Inp" android:text="https://example.com" />
+            <TextView style="@style/Lbl" android:text="Label darunter (optional):" />
+            <EditText android:id="@+id/etQrLabel" style="@style/Inp" />
+        </LinearLayout>
+
+        <!-- BARCODE -->
+        <LinearLayout android:id="@+id/grpBarcode" style="@style/Grp">
+            <TextView style="@style/Lbl" android:text="Barcode-Inhalt:" />
+            <EditText android:id="@+id/etBcData" style="@style/Inp" android:text="4006381333931" />
+            <TextView style="@style/Lbl" android:text="Typ:" />
+            <Spinner android:id="@+id/spBcType" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:backgroundTint="@color/accent" />
+        </LinearLayout>
+
+        <!-- ETIKETT -->
+        <LinearLayout android:id="@+id/grpLabel" style="@style/Grp">
+            <TextView style="@style/Lbl" android:text="Titel:" />
+            <EditText android:id="@+id/etLblTitle" style="@style/Inp" android:text="Kaffee" />
+            <TextView style="@style/Lbl" android:text="Untertitel:" />
+            <EditText android:id="@+id/etLblSub" style="@style/Inp" android:text="MHD 2026-12-31" />
+            <TextView style="@style/Lbl" android:text="QR-Daten rechts (optional):" />
+            <EditText android:id="@+id/etLblQr" style="@style/Inp" />
+        </LinearLayout>
+
+        <!-- BANNER -->
+        <LinearLayout android:id="@+id/grpBanner" style="@style/Grp">
+            <TextView style="@style/Lbl" android:text="Banner-Text (groß, längs):" />
+            <EditText android:id="@+id/etBanner" style="@style/Inp" android:text="PARTY" />
+            <TextView style="@style/Lbl" android:text="Leserichtung:" />
+            <RadioGroup android:id="@+id/rgBannerDir" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <RadioButton android:id="@+id/rbDown" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="oben→unten" android:checked="true"
+                    android:textColor="@color/on_bg" />
+                <RadioButton android:id="@+id/rbUp" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="unten→oben" android:layout_marginStart="12dp"
+                    android:textColor="@color/on_bg" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- BILD -->
+        <LinearLayout android:id="@+id/grpImage" style="@style/Grp">
+            <Button android:id="@+id/btnPickImage" style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Bild wählen…" />
+            <TextView android:id="@+id/txtImgPath" style="@style/Lbl" android:text="(keine Datei)" />
+            <CheckBox android:id="@+id/cbDither" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:checked="true"
+                android:text="Foto-Modus (Dithering)" android:textColor="@color/on_bg" />
+        </LinearLayout>
+
+        <!-- Gemeinsame Optionen -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:layout_marginTop="12dp" android:background="@color/surface" />
+        <TextView style="@style/Lbl" android:id="@+id/txtDensity" android:text="Dichte: 98" />
+        <SeekBar android:id="@+id/sbDensity" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:max="160" android:progress="98" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+            <TextView style="@style/Lbl" android:text="Kopien:" android:layout_marginEnd="8dp" />
+            <EditText android:id="@+id/etCopies" android:layout_width="56dp"
+                android:layout_height="wrap_content" android:inputType="number" android:text="1"
+                android:textColor="@color/on_bg" />
+            <TextView style="@style/Lbl" android:text="Rahmen:" android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp" />
+            <Spinner android:id="@+id/spFrame" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:backgroundTint="@color/accent" />
+        </LinearLayout>
+
+        <!-- Vorschau -->
+        <TextView style="@style/Lbl" android:text="Vorschau:" android:layout_marginTop="12dp" />
+        <ImageView android:id="@+id/imgPreview" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:background="@color/white" android:minHeight="80dp" android:scaleType="fitCenter"
+            android:contentDescription="Vorschau" />
+
+        <Button android:id="@+id/btnPreview" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="Vorschau aktualisieren" />
+
+        <Button android:id="@+id/btnPrint" style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="DRUCKEN" android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

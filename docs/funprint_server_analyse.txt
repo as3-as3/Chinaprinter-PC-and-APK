@@ -1,0 +1,106 @@
+============================================================
+  FunPrint (com.fun.mxw) — Server-/Tracking-Analyse
+  Erstellt: 2026-06-13
+  Quelle: statische Analyse der entpackten APK
+          (app-service.js + classes*.dex)
+============================================================
+
+ZWECK
+------------------------------------------------------------
+Welche Server hat die originale Hersteller-App "FunPrint"
+angesteuert? Ermittelt durch Extraktion aller URLs/Domains
+aus dem App-Code und den nativen SDKs.
+
+Die selbst gebaute Ersatz-App (PC + Android) kontaktiert
+KEINEN dieser Server — sie spricht ausschließlich per
+Bluetooth direkt mit dem Drucker.
+
+
+1) APP-FUNKTION (das eigentlich Nötige)
+------------------------------------------------------------
+  yintb.com / g.yintb.com / label.yintb.com
+  label.g.yintb.com / wsdy.yintb.com / cn.yintb.com
+  api.yintb.com / cdnapi.yintibao.com / ytb.193.com
+      -> Hersteller-Backend (Vorlagen, Etiketten, Konto)
+
+  *.ocrmath.com (api.open / export / web / share /
+      miaoxue.* ) / api.friendai.ocrmath.com
+  ocr.server.ocrmath.com:7000 / aicamera.friendai.cloud
+  chat.miaoxuewang.cn
+      -> OCR & KI-Texterkennung (in der Cloud!)
+
+  restapi.amap.com
+      -> AMap (Gaode) Karten / Geo
+
+  api.bspapp.com / api.next.bspapp.com
+  tcb-api.tencentcloudapi.com
+  api-hz.cloudbasefunction.cn
+      -> Tencent CloudBase (Server-Backend / Funktionen)
+
+  tongji.dcloud.io / uniapp.dcloud.net.cn
+  web-ext-storage.dcloud.net.cn / ask.dcloud.net / er.dcloud.io
+      -> uni-app-Plattform (DCloud) inkl. Statistik
+
+
+2) WERBUNG & TRACKING  (die eigentliche "Bloatware")
+------------------------------------------------------------
+  ByteDance / Pangle (Werbenetzwerk):
+    api16-access-sg.pangle.io
+    api16-endcard-pack-sg.pangle.io
+    www.pangleglobal.com
+    log.byteoversea.com
+    sf16-scmcdn-sg.ibytedtos.com
+    sf16-static.i18n-pglstatp.com
+
+  TikTok (Tracking / Werbung):
+    analytics.tiktok.com
+    us.tiktok.com
+    p16-sign-sg.tiktokcdn.com
+    lf-static.tiktokpangle-cdn-us.com
+
+  Google Ads / AdMob / DoubleClick:
+    pagead2.googlesyndication.com
+    mobileads.google.com
+    ad.doubleclick.net / g.doubleclick.net
+    www.googleadservices.com
+    fundingchoicesmessages.google.com
+    imasdk.googleapis.com
+
+  Facebook (SDK / Tracking):
+    connect.facebook.net
+    www.facebook.com
+
+  Kamera-"Beauty"-Filter-SDKs:
+    effect.texeljoy.com / effect.texeljoyar.com
+    fbsnauth.texeljoyar.com
+    facebeauty.hongtukit.com
+
+
+3) LOGIN / BEZAHLUNG / STORE
+------------------------------------------------------------
+  accounts.google.com / login.live.com / login.yahoo.com
+  www.paypal.com / apps.apple.com / play.google.com
+      -> Social-Logins, In-App-Käufe, Store-Verweise
+
+
+FAZIT
+------------------------------------------------------------
+Eine simple Etiketten-Drucker-App brachte gleich VIER
+Werbe-/Tracking-Netzwerke mit (ByteDance/Pangle, TikTok,
+Google Ads, Facebook), dazu Cloud-OCR und mehrere
+Analytics-Dienste. Beim bloßen Drucken eines Etiketts
+konnten potenziell Nutzungsdaten an all diese Server fließen.
+
+Die selbst gebaute App (PC + Handy):
+  - kontaktiert NULL Server
+  - kein Tracking, keine Werbung, keine Cloud
+  - nur Bluetooth direkt zum Drucker
+  - 5,86 MB (Handy) statt 185 MB
+
+HINWEIS
+------------------------------------------------------------
+Dies ist eine STATISCHE Analyse (im Code gefundene Adressen).
+Welche davon im Betrieb tatsächlich kontaktiert werden, hängt
+von den genutzten Funktionen ab. Eine dynamische Bestätigung
+wäre per Netzwerk-Mitschnitt (Proxy/tcpdump) möglich.
+============================================================
